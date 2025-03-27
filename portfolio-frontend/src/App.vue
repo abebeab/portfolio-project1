@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- Header Section -->
+    <!-- Static Header -->
     <header class="header">
       <div class="logo">
         <i class="fas fa-laravel"></i>
@@ -18,44 +18,39 @@
       </nav>
     </header>
 
-    <!-- Main Content Sections -->
+    <!-- Main content area where the sections are displayed -->
     <main>
-      <section id="home">
-        <h2>Home</h2>
-        <p>Welcome to my portfolio website.</p>
-      </section>
-
-      <section id="about">
-        <h2>About Me</h2>
-        <p>This is a brief introduction about myself.</p>
-      </section>
-
-      <section id="portfolio">
-        <h2>My Portfolio</h2>
-        <p>Here are some of the projects I have worked on.</p>
-      </section>
-
-      <section id="services">
-        <h2>Services</h2>
-        <p>Here are the services I offer.</p>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Get in touch with me!</p>
-      </section>
+      <HomeComponent />
+      <About />
+      <Portfolio />
+      <Services />
+      <Contact />
     </main>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-      <p>&copy; 2025 <a href="https://www.laravel.com" target="_blank">laravel.com</a> All Rights Reserved.</p>
-    </footer>
+    <!-- AppFooter Component -->
+    <AppFooter />
   </div>
 </template>
 
 <script>
+import HomeComponent from './components/HomeComponent.vue'
+import About from './components/About.vue'
+import Portfolio from './components/Portfolio.vue'
+import Services from './components/Services.vue'
+import Contact from './components/Contact.vue'
+// Import AppFooter.vue
+import AppFooter from './components/AppFooter.vue';  // Updated import
+
 export default {
   name: 'App',
+  components: {
+    HomeComponent  ,
+    About,
+    Portfolio,
+    Services,
+    Contact,
+    AppFooter
+  }
 }
 </script>
 
@@ -73,62 +68,74 @@ body {
   scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
-/* Header Section */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  background-color: #efdecd;
-  color: #333;
+/* Static Header Styles */
+header {
+  display: flex; /* Flexbox layout for header */
+  justify-content: space-between; /* Space between logo and navbar */
+  align-items: center; /* Vertically center the items */
+  position: fixed; /* Fix the header at the top */
+  top: 0;
+  left: 0;
   width: 100%;
-  box-sizing: border-box;
-  min-height: 80px;
-  position: sticky;  /* Sticky positioning */
-  top: 0;  /* Stick to the top of the page */
-  z-index: 1000;  /* Ensure it's above other content */
+  min-height:50px;
+  background-color: #e9967a; /* Dark background for header */
+  color: white;
+  padding: 10px 30px; /* Added more horizontal padding for spacing */
+  z-index: 1000; /* Ensure the header stays on top */
 }
 
+/* Logo Styles */
 .logo {
   display: flex;
   align-items: center;
+  margin-right: auto; /* Push the logo to the left */
 }
 
 .logo i {
-  font-size: 36px;
-  margin-right: 50px;
+  font-size: 2rem; /* Larger icon */
+  margin-right: 10px; /* Space between icon and text */
 }
 
 .logo span {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
+/* Navbar Styles */
 .navbar ul {
-  list-style-type: none;
+  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 20px;
+  margin-right: 60px;
 }
 
 .navbar li {
-  padding: 10px;
+  margin-right: 0px; /* Space between links */
 }
 
 .navbar a {
+  color: white;
   text-decoration: none;
-  color: #333;
-  font-size: 18px;
-  display: block;
+  font-size: 1.2rem;
+  padding: 8px 20px; /* Increased padding for better spacing */
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .navbar a:hover {
-  color: #f2f3f4;
+  background-color: #555; /* Hover effect for navbar links */
 }
 
-.contact-link {
-  margin-right: 0px;
+/* Section Styles */
+section {
+  padding: 60px 20px; /* Add padding to the sections to ensure content doesn't hide under header */
+  min-height: 300px; /* Ensure sections are tall enough */
+}
+
+/* Specific margin-top for each section to prevent overlap with the header */
+#home, #about, #portfolio, #services, #contact {
+  margin-top: 80px; /* Add space for the fixed header */
 }
 
 /* Main Section Styles */
@@ -137,35 +144,17 @@ main {
   width: 100%;
   text-align: center;
   background-color: #fff;
+  flex-grow: 1; /* Make sure the content grows to fill the space */
 }
 
-section {
-  margin-bottom: 40px;
-  padding:20px;
-  min-height: 300px;
-}
-
-/* Footer Styling */
-.footer {
-  background-color: #f2f3f4;
-  padding: 20px;
+/* AppFooter Section */
+footer {
+  background-color: #333;
+  color: white;
   text-align: center;
-  font-size: 14px;
-  color: #333;
+  padding: 10px 0;
+  position: relative; /* Changed to relative to prevent overlap */
+  bottom: 0;
   width: 100%;
-  position: relative;
-}
-
-.footer p {
-  margin: 0;
-}
-
-.footer a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
 }
 </style>
