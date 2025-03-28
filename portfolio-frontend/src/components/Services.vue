@@ -8,7 +8,6 @@
     <div class="services-intro">
       <h3 class="services-heading">What I Do for Clients</h3>
       <p class="services-subheading">I give many services for clients.</p>
-     
     </div>
 
     <!-- Service Boxes Section -->
@@ -80,11 +79,13 @@ export default {
 /* Section Styling */
 section#services {
   padding: 40px 10px;
-  min-height: 600px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f4f7fb;
+  margin-top: 20px; /* Increased gap between the top of the services section and header */
+  scroll-margin-top: 40px; /* Ensures proper scroll behavior when jumping to this section */
 }
 
 /* Top Section Styling */

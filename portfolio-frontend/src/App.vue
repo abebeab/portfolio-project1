@@ -3,7 +3,7 @@
     <!-- Static Header -->
     <header class="header">
       <div class="logo">
-        <i class="fas fa-laravel"></i>
+        <img src="@/assets/icons/logo.png" alt="Logo" class="logo-img" />
         <span>My Portfolio here!!</span>
       </div>
 
@@ -44,7 +44,7 @@ import AppFooter from './components/AppFooter.vue';  // Updated import
 export default {
   name: 'App',
   components: {
-    HomeComponent  ,
+    HomeComponent,
     About,
     Portfolio,
     Services,
@@ -77,7 +77,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  min-height:50px;
+  min-height: 50px;
   background-color: #e9967a; /* Dark background for header */
   color: white;
   padding: 10px 30px; /* Added more horizontal padding for spacing */
@@ -91,9 +91,12 @@ header {
   margin-right: auto; /* Push the logo to the left */
 }
 
-.logo i {
-  font-size: 2rem; /* Larger icon */
-  margin-right: 10px; /* Space between icon and text */
+.logo-img {
+  width: 80px; /* Set the width of the logo */
+  height: 80px; /* Set the height of the logo to make it a square */
+  border-radius: 50%; /* Make the logo circular */
+  object-fit: cover; /* Ensure the image is cropped to fit the circular shape */
+  margin-right: 10px; /* Space between logo and text */
 }
 
 .logo span {

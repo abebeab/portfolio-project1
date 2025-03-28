@@ -69,8 +69,9 @@ export default {
 </script>
 
 <style scoped>
-/* Section Styling for About */
+/* Section Styling for About *//* Section Styling for About */
 section#about {
+  margin-top: 100px; /* Increased the top margin to create a larger gap */
   margin-bottom: 40px;
   padding: 40px 10px; /* Reduced padding for narrowness */
   min-height: 300px;
@@ -79,7 +80,9 @@ section#about {
   align-items: center;
   flex-direction: column; /* Stack image and text vertically */
   position: relative; /* Ensure the background works as expected */
+  padding-top: 80px;
 }
+
 
 /* Container for flex layout in About Section */
 .about-container {

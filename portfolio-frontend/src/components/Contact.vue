@@ -50,24 +50,38 @@
 
 <script>
 export default {
-  name: 'ContactSection',  // Multi-word component name
+  name: 'ContactSection',
 }
 </script>
 
 <style scoped>
 /* Section Styling */
 section#contact {
+  margin-top: 10px; /* Reduced space between the top of the contact section and header */
   padding: 40px 10px;
-  min-height: 600px;
+  padding-top: 30px; /* Further reduced top padding for more compact space */
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
   position: relative;
-  background-color: #f4f7fb; /* New background color */
-  border-radius: 10px; /* Optional: Adds rounded corners to the section */
+  background-color: #f4f7fb; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Light shadow */
 }
 
+/* Adjusting Scroll Behavior */
+html {
+  scroll-padding-top: 60px; /* Reduced padding to make the section appear closer to the header */
+}
+
+/* Ensure there's always space when navigating to the section */
+section#contact {
+  scroll-margin-top: 60px; /* Adjusted space when scrolling to the section */
+}
+
+/* Styling for the Title */
 .contact-title {
   font-size: 3rem;
   font-weight: bold;
@@ -208,4 +222,5 @@ section#contact {
     width: 90%; /* Ensure form elements are wider on smaller screens */
   }
 }
+
 </style>
