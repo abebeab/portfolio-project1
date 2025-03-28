@@ -22,24 +22,26 @@
         <p class="follow-text">
           Follow me on
         </p>
+
+        <!-- Social links horizontally under Follow me on -->
         <div class="social-links">
           <!-- LinkedIn Link -->
-          <a href="https://www.linkedin.com" target="_blank" class="social-icon">
+          <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
             <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn">
           </a>
 
           <!-- Telegram Link -->
-          <a href="https://telegram.me" target="_blank" class="social-icon">
+          <a href="https://t.me/ab_se7p" target="_blank" class="social-icon">
             <img src="../assets/icons/telegram-icon.jpg" alt="Telegram">
           </a>
 
           <!-- GitHub Link -->
-          <a href="https://github.com" target="_blank" class="social-icon">
+          <a href="https://github.com/abebeab" target="_blank" class="social-icon">
             <img src="../assets/icons/github-icon.jpg" alt="GitHub">
           </a>
 
           <!-- Upwork Link -->
-          <a href="https://www.upwork.com" target="_blank" class="social-icon">
+          <a href="https://www.upwork.com/freelancers/~01d347dbe89190526d?mp_source=share" target="_blank" class="social-icon">
             <img src="../assets/icons/upwork-icon.jpg" alt="Upwork">
           </a>
         </div>
@@ -58,17 +60,24 @@
 </template>
 
 <style scoped>
-#home {
-  display: flex;
-  justify-content: center; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically */
-  height: calc(100vh - 60px); /* Adjust the height to avoid space for the header */
-  width: 100%;
-  background-color: #f0f4f8; /* Set a different background color for the home section */
-  margin-top: 0; /* Make sure no extra space exists between the header and this section */
-  padding: 20px 0; /* Add padding for spacing */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
+/* Home section styling */
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 0px); /* Adjust the height to avoid space for the header */
+  width: 100%;
+  background-color: #f0f4f8;
+  margin-top: 150px; /* Increased space between the header and home section */
+  padding: 20px 0;
+}
+
+/* Container to hold content inside the home section */
 .home-container {
   display: flex;
   justify-content: center; /* Center the content horizontally */
@@ -77,6 +86,7 @@
   max-width: 1200px; /* Optional: Limit maximum width */
 }
 
+/* Styling for the text content */
 .home-text {
   flex: 1; /* Allow the text to take up available space */
   padding-right: 20px;
@@ -103,6 +113,7 @@
   font-size: 16px;
 }
 
+/* Work with Me button styling */
 .work-button {
   padding: 10px 20px;
   background-color: #4CAF50;
@@ -115,15 +126,18 @@
   background-color: #45a049;
 }
 
+/* Follow me on section */
 .follow-text {
   margin-top: 20px;
   font-size: 18px;
+  margin-bottom: 20px; /* Add space after the text */
 }
 
+/* Social links and icons styling */
 .social-links {
   display: flex;
-  justify-content: center; /* Center social icons */
-  gap: 20px; /* Increase space between icons */
+  justify-content: flex-start; /* Align items to the left */
+  gap: 20px; /* Space between the icons */
   margin-top: 10px;
 }
 
@@ -138,6 +152,7 @@
   transform: scale(1.2); /* Scale up the icons on hover */
 }
 
+/* Image section styling */
 .home-image {
   flex: 1; /* Allow the image to take up remaining space */
   text-align: center; /* Center the image */
@@ -151,6 +166,7 @@
   max-width: 100%; /* Ensure the image is responsive */
 }
 
+/* Course button styling */
 .course-button-paragraph {
   margin-top: 20px; /* Add space between the image and the button */
   text-align: center; /* Center the button */
