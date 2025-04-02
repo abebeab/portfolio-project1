@@ -1,163 +1,199 @@
 <template>
   <div id="app">
-    <!-- Static Header -->
+    <!-- Header Section -->
     <header class="header">
       <div class="logo">
         <img src="@/assets/icons/logo.png" alt="Logo" class="logo-img" />
-        <span>My Portfolio here!!</span>
+        <span class="logo-text">My Portfolio here!!</span>
       </div>
-
       <nav class="navbar">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact" class="contact-link">Contact</a></li>
+        <div class="hamburger" @click="toggleMenu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul :class="{ 'active': menuActive }">
+          <li><a href="#home" @click="scrollToSection('#home')" aria-label="Go to Home section">Home</a></li>
+          <li><a href="#about" @click="scrollToSection('#about')" aria-label="Go to About section">About</a></li>
+          <li><a href="#portfolio" @click="scrollToSection('#portfolio')" aria-label="Go to Portfolio section">Portfolio</a></li>
+          <li><a href="#services" @click="scrollToSection('#services')" aria-label="Go to Services section">Services</a></li>
+          <li><a href="#contact" @click="scrollToSection('#contact')" aria-label="Go to Contact section">Contact</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- Main content area where the sections are displayed -->
+    <!-- Main Content Sections -->
     <main>
-      <HomeComponent />
-      <About />
-      <Portfolio />
-      <Services />
-      <Contact />
+      <HomeComponent />  <!-- Include HomeComponent instead of Home.vue -->
+      <About />  <!-- Include About component here -->
+      <Portfolio />  <!-- Include Portfolio component here -->
+      <Services />  <!-- Include Services component here -->
+      
+      <!-- Contact Section added here -->
+      <Contact />  <!-- Include Contact component here -->
     </main>
-
-    <!-- AppFooter Component -->
-    <AppFooter />
   </div>
 </template>
 
 <script>
-import HomeComponent from './components/HomeComponent.vue'
-import About from './components/About.vue'
-import Portfolio from './components/Portfolio.vue'
-import Services from './components/Services.vue'
-import Contact from './components/Contact.vue'
-// Import AppFooter.vue
-import AppFooter from './components/AppFooter.vue';  // Updated import
+// Import components
+import HomeComponent from './components/HomeComponent.vue';
+import About from './components/About.vue';
+import Services from './components/Services.vue';
+import Portfolio from './components/Portfolio.vue';  // Import the Portfolio component
+import Contact from './components/Contact.vue';  // Import the Contact component
 
 export default {
   name: 'App',
   components: {
     HomeComponent,
     About,
-    Portfolio,
     Services,
-    Contact,
-    AppFooter
-  }
-}
+    Portfolio,  // Register Portfolio component
+    Contact,  // Register Contact component
+  },
+  data() {
+    return {
+      menuActive: false,  // To toggle the menu on mobile
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuActive = !this.menuActive;  // Toggle the menu visibility
+    },
+    scrollToSection(id) {
+      const section = document.querySelector(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        this.menuActive = false;  // Close the mobile menu after clicking a link
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
-/* Global Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #f9f9f9;
+/* Header Styles */
+.header {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  scroll-behavior: smooth; /* Enable smooth scrolling */
-}
-
-/* Static Header Styles */
-header {
-  display: flex; /* Flexbox layout for header */
-  justify-content: space-between; /* Space between logo and navbar */
-  align-items: center; /* Vertically center the items */
-  position: fixed; /* Fix the header at the top */
-  top: 0;
-  left: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #efdecd;
+  color: #333;
   width: 100%;
-  min-height: 50px;
-  background-color: #e9967a; /* Dark background for header */
-  color: white;
-  padding: 10px 30px; /* Added more horizontal padding for spacing */
-  z-index: 1000; /* Ensure the header stays on top */
+  box-sizing: border-box;
+  min-height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
 }
 
-/* Logo Styles */
 .logo {
   display: flex;
   align-items: center;
-  margin-right: auto; /* Push the logo to the left */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .logo-img {
-  width: 80px; /* Set the width of the logo */
-  height: 80px; /* Set the height of the logo to make it a square */
-  border-radius: 50%; /* Make the logo circular */
-  object-fit: cover; /* Ensure the image is cropped to fit the circular shape */
-  margin-right: 10px; /* Space between logo and text */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
-.logo span {
+.logo-text {
   font-size: 1.5rem;
   font-weight: bold;
+  white-space: nowrap;
 }
 
-/* Navbar Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .navbar ul {
   list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
-  display: flex;
-  margin-right: 60px;
 }
 
 .navbar li {
-  margin-right: 0px; /* Space between links */
+  margin-left: 20px;
 }
 
 .navbar a {
-  color: white;
   text-decoration: none;
   font-size: 1.2rem;
-  padding: 8px 20px; /* Increased padding for better spacing */
+  padding: 8px 20px;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
 .navbar a:hover {
-  background-color: #555; /* Hover effect for navbar links */
+  background-color: #555;
 }
 
-/* Section Styles */
-section {
-  padding: 60px 20px; /* Add padding to the sections to ensure content doesn't hide under header */
-  min-height: 300px; /* Ensure sections are tall enough */
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
 }
 
-/* Specific margin-top for each section to prevent overlap with the header */
-#home, #about, #portfolio, #services, #contact {
-  margin-top: 80px; /* Add space for the fixed header */
+.hamburger .bar {
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #efdecd;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+  }
+
+  .navbar a {
+    width: 100%;
+    text-align: left;
+  }
 }
 
 /* Main Section Styles */
-main {
-  padding: 20px;
-  width: 100%;
+section {
+  padding: 60px 20px;
   text-align: center;
-  background-color: #fff;
-  flex-grow: 1; /* Make sure the content grows to fill the space */
 }
 
-/* AppFooter Section */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: relative; /* Changed to relative to prevent overlap */
-  bottom: 0;
-  width: 100%;
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
 </style>

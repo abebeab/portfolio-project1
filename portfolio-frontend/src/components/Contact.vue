@@ -1,4 +1,4 @@
-<template>
+  <template>
   <section id="contact">
     <!-- Top Section -->
     <h2 class="contact-title">Contact Me</h2>
@@ -29,7 +29,7 @@
           <span>Current Location: Addis Ababa, Ethiopia</span>
         </div>
         <div class="info-item">
-          <span>Serving Clients Worldwide</span>
+          <span>Serving Clients Worldwide!</span>
         </div>
       </div>
 
@@ -53,7 +53,6 @@ export default {
   name: 'ContactSection',
 }
 </script>
-
 <style scoped>
 /* Section Styling */
 section#contact {
