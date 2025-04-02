@@ -7,11 +7,17 @@
         <span class="logo-text">My Portfolio here!!</span>
       </div>
       <nav class="navbar">
+        <!-- MENU Text and Hamburger Icon in One Line -->
+        <span class="menu-label">MENU</span>
+
+        <!-- Hamburger Icon for mobile view -->
         <div class="hamburger" @click="toggleMenu">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
+
+        <!-- Navigation Links -->
         <ul :class="{ 'active': menuActive }">
           <li><a href="#home" @click="scrollToSection('#home')" aria-label="Go to Home section">Home</a></li>
           <li><a href="#about" @click="scrollToSection('#about')" aria-label="Go to About section">About</a></li>
@@ -90,7 +96,7 @@ export default {
   position: sticky;
   top: 0;
   z-index: 1000;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;  /* Prevent wrapping of elements */
 }
 
 .logo {
@@ -117,6 +123,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+  width: 100%;
 }
 
 .navbar ul {
@@ -124,7 +132,6 @@ export default {
   display: flex;
   margin: 0;
   padding: 0;
-  
 }
 
 .navbar li {
@@ -160,7 +167,15 @@ export default {
   border-radius: 2px;
 }
 
-/* Mobile Styles */
+/* MENU Text positioned on the right side (for mobile view and inspection) */
+.menu-label {
+  display: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 20px;
+  color: #333;
+}
+
 @media (max-width: 768px) {
   .navbar ul {
     display: none;
@@ -188,16 +203,15 @@ export default {
     width: 100%;
     text-align: left;
   }
-}
 
-/* Main Section Styles */
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
+  /* Show the MENU text on smaller screens (inspection) and position it in line with hamburger */
+  .menu-label {
+    display: block;
+    margin-right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+  }
 }
 </style>

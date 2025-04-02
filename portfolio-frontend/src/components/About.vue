@@ -28,6 +28,8 @@
     <!-- Technologies Section within the About Section -->
     <div class="technologies-wrapper">
       <h2 class="tech-title">Technologies I Work With</h2>
+
+      <!-- MENU: Technologies Section with icons -->
       <div class="tech-icons">
         <div class="tech-item">
           <img src="../assets/icons/laravel-icon.jpg" alt="Laravel" />
@@ -69,64 +71,60 @@ export default {
 </script>
 
 <style scoped>
-/* Section Styling for About *//* Section Styling for About */
+/* Section Styling for About */
 section#about {
-  margin-top: 100px; /* Increased the top margin to create a larger gap */
+  margin-top: 100px;
   margin-bottom: 40px;
-  padding: 40px 10px; /* Reduced padding for narrowness */
+  padding: 40px 10px;
   min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; /* Stack image and text vertically */
-  position: relative; /* Ensure the background works as expected */
+  flex-direction: column;
+  position: relative;
   padding-top: 80px;
 }
 
-
-/* Container for flex layout in About Section */
 .about-container {
   display: flex;
-  align-items: center; /* Center the image vertically */
+  align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 960px; /* Reduced max-width to make it narrower */
-  gap: 20px; /* Reduced gap between image and text */
+  max-width: 960px;
+  gap: 20px;
 }
 
-/* Styling for the image */
 .about-image {
   flex: 1;
   padding: 20px;
   text-align: center;
   display: flex;
-  justify-content: center; /* Center the image horizontally */
+  justify-content: center;
 }
 
 .about-image img {
   max-width: 100%;
-  height: auto; /* Adjust height to make the image shorter */
-  object-fit: cover; /* Ensures image doesn't stretch, keeps aspect ratio */
-  border-radius: 10px; /* Optional: adds rounded corners */
-  width: 100%; /* Makes image fill the container */
-  max-height: 300px; /* Constrains height */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  width: 100%;
+  max-height: 300px;
 }
 
-/* Styling for the text and button in About */
 .about-text {
   flex: 2;
   padding: 20px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align text to the top */
+  justify-content: flex-start;
 }
 
 .about-title {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 10px;
-  line-height: 1.5; /* Line height for better spacing between lines */
+  line-height: 1.5;
 }
 
 .about-paragraph {
@@ -156,15 +154,14 @@ section#about {
   background-color: #c67c56;
 }
 
-/* Technologies Section (inside About Section) */
 .technologies-wrapper {
-  background-color: #f0f8ff; /* Distinct background color for the technologies part */
+  background-color: #f0f8ff;
   padding: 40px 20px;
   text-align: center;
-  border-radius: 10px; /* Optional: rounded corners for tech section */
-  margin-top: 40px; /* Adds space between About and Technologies */
+  border-radius: 10px;
+  margin-top: 40px;
   width: 100%;
-  max-width: 960px; /* Keeps it narrow like the About Section */
+  max-width: 960px;
 }
 
 .tech-title {
@@ -175,9 +172,9 @@ section#about {
 
 .tech-icons {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Responsive grid for icons */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 20px;
-  justify-items: center; /* Centers icons */
+  justify-items: center;
 }
 
 .tech-item {
@@ -185,8 +182,8 @@ section#about {
 }
 
 .tech-item img {
-  width: 60px; /* Icon size */
-  height: 60px; /* Icon size */
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   margin-bottom: 10px;
 }
@@ -198,7 +195,6 @@ section#about {
   color: #333;
 }
 
-/* Responsive Design for smaller screens */
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
@@ -220,7 +216,7 @@ section#about {
   }
 
   .tech-icons {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjusted grid for small screens */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   }
 }
 </style>

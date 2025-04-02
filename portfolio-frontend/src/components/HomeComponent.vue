@@ -15,7 +15,7 @@
 
         <!-- Work with me button -->
         <p class="button-paragraph">
-          <button class="work-button">Work with Me</button>
+          <button @click="scrollToContact" class="work-button">Work with Me</button>
         </p>
 
         <!-- Follow me on section -->
@@ -25,22 +25,15 @@
 
         <!-- Social links horizontally under Follow me on -->
         <div class="social-links">
-          <!-- LinkedIn Link -->
           <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
             <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn">
           </a>
-
-          <!-- Telegram Link -->
           <a href="https://t.me/ab_se7p" target="_blank" class="social-icon">
             <img src="../assets/icons/telegram-icon.jpg" alt="Telegram">
           </a>
-
-          <!-- GitHub Link -->
           <a href="https://github.com/abebeab" target="_blank" class="social-icon">
             <img src="../assets/icons/github-icon.jpg" alt="GitHub">
           </a>
-
-          <!-- Upwork Link -->
           <a href="https://www.upwork.com/freelancers/~01d347dbe89190526d?mp_source=share" target="_blank" class="social-icon">
             <img src="../assets/icons/upwork-icon.jpg" alt="Upwork">
           </a>
@@ -50,14 +43,26 @@
       <!-- Right side: Image -->
       <div class="home-image">
         <img src="@/assets/apprnt.jpg" alt="About Me" />
-        <!-- New Button: Get the Course -->
         <p class="course-button-paragraph">
-          <button class="course-button">Get the Course</button>
+          <button @click="scrollToContact" class="course-button">Get the Course</button>
         </p>
       </div>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  methods: {
+    scrollToContact() {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+  },
+};
+</script>
 
 <style scoped>
 /* Smooth scrolling */
