@@ -1,69 +1,52 @@
 <template>
   <section id="contact">
-    <!-- Top Section -->
     <h2 class="contact-title">Contact Me</h2>
-    <p class="contact-description">Hey, you can contact me in any choice social media link or email me.</p>
+    <p class="contact-description">
+      Hey, you can contact me through any of your favorite social media links or email me directly!
+    </p>
 
     <!-- Success Message -->
     <div v-if="formSubmitted" class="success-message">
-      Thank You, The Message Submitted Successfully!
+      Thank You! The Message was Submitted Successfully!
     </div>
 
-    <!-- Bottom Section with Left Info and Right Form -->
     <div class="contact-content">
-      <!-- Left Section: Contact Information -->
       <div class="contact-info-left">
-        <!-- First Block: Message Info -->
-        <div class="info-item">
-          <img src="../assets/icons/message-icon.jpg" alt="Message Icon" class="icon" />
-          <span>Have a question?</span>
-        </div>
-        <div class="info-item">
-          <span>I am here to help you</span>
-        </div>
-        <div class="info-item">
-          <span>Email me at <a href="mailto:abebetafere988@gmail.com">abebetafere988@gmail.com</a></span>
-        </div>
-
-        <!-- Add Gap Between Two Blocks -->
-        <div class="info-gap"></div>
-
-        <!-- Second Block: Location Info -->
-        <div class="info-item">
-          <img src="../assets/icons/location-icon.jpg" alt="Location Icon" class="icon" />
-          <span>Current Location: Addis Ababa, Ethiopia</span>
-        </div>
-        <div class="info-item">
-          <span>Serving Clients Worldwide!</span>
-        </div>
+        <!-- Add your contact information here -->
       </div>
 
-      <!-- Right Section: Contact Form -->
       <div class="contact-form-right">
-        <form @submit.prevent="handleSubmit">
+        <!-- Form Element -->
+        <form @submit.prevent="handleSubmit" ref="form">
           <div class="form-inputs">
-            <input type="text" v-model="name" placeholder="Your Name" required class="input-field" />
-            <input type="email" v-model="email" placeholder="Your Email" required class="input-field" />
+            <input
+              type="text"
+              v-model="name"
+              name="user_name"
+              placeholder="Your Name"
+              required
+              class="input-field"
+            />
+            <input
+              type="email"
+              v-model="email"
+              name="user_email"
+              placeholder="Your Email"
+              required
+              class="input-field"
+            />
           </div>
-          <textarea v-model="message" placeholder="Your Message" required></textarea>
+          <textarea v-model="message" name="message" placeholder="Your Message" required></textarea>
           <button type="submit">Send Message</button>
         </form>
       </div>
     </div>
-
-    <!-- Home Page Button (Right Corner) -->
-    <div class="scroll-to-home" @click="goToHome">
-      <i class="fa fa-home"></i> <!-- FontAwesome Home Icon -->
-      <!-- Bullet Indicator -->
-      <div class="bullet"></div>
-    </div>
-    
-    <!-- MENU Text for Developer Tools (Invisible on the Page) -->
-    <!-- MENU: This section contains the icons for "Contact" and Home page navigation -->
   </section>
 </template>
 
 <script>
+import emailjs from '@emailjs/browser';
+
 export default {
   name: 'ContactSection',
   data() {
@@ -71,29 +54,64 @@ export default {
       name: '',
       email: '',
       message: '',
-      formSubmitted: false, // To track if form is submitted
+      formSubmitted: false,
     };
   },
   methods: {
-    goToHome() {
-      window.location.href = '/'; // This will redirect to the home page
-    },
     handleSubmit() {
-      // Here, you would typically send the form data to your server or API.
-      // For this example, we just simulate a successful submission.
+      const form = this.$refs.form; // Reference the form
 
-      // Reset the form values
-      this.name = '';
-      this.email = '';
-      this.message = '';
+      // Step 1: Send the message to your email (admin email)
+      emailjs
+        .sendForm('service_u1gdw9v', 'template_bjp8zyb', form, 'KH3eyX6xnGJcbUd9R')
+        .then(
+          (result) => {
+            console.log('Message sent to admin:', result.text);
 
-      // Set formSubmitted to true to show the success message
-      this.formSubmitted = true;
+            // Step 2: Send the auto-response email to the user
+            this.sendAutoResponse();
 
-      // Hide the success message after 3 seconds
-      setTimeout(() => {
-        this.formSubmitted = false;
-      }, 3000); // 3 seconds
+            // Step 3: After successful submission, reset the form fields
+            this.name = '';
+            this.email = '';
+            this.message = '';
+            this.formSubmitted = true;
+
+            // Step 4: Hide the success message after 3 seconds
+            setTimeout(() => {
+              this.formSubmitted = false;
+            }, 3000); // 3 seconds for the success message
+          },
+          (error) => {
+            console.log('Error sending message to admin:', error.text);
+            alert('There was an error submitting your form. Please try again later.');
+          }
+        );
+
+      // Optionally reset the form manually
+      form.reset();
+    },
+
+    sendAutoResponse() {
+      // Step 1: Prepare auto-response parameters
+      const autoResponseParams = {
+        user_name: this.name,
+        user_email: this.email,
+        message: this.message,
+      };
+
+      // Step 2: Send the auto-reply to the user
+      emailjs
+        .send('service_u1gdw9v', 'template_kutm8cg', autoResponseParams, 'KH3eyX6xnGJcbUd9R')
+        .then(
+          (result) => {
+            console.log('Auto-response sent to user:', result.text);
+          },
+          (error) => {
+            console.log('Error sending auto-response to user:', error.text);
+            alert('There was an error sending the auto-response. Please try again later.');
+          }
+        );
     },
   },
 };
@@ -126,11 +144,12 @@ section#contact {
   border-radius: 5px;
   margin-bottom: 20px;
   text-align: center;
-  animation: showMessage 0.5s ease-in-out; /* Animation for a smooth appearance */
+  opacity: 0;
+  animation: fadeIn 0.5s forwards; /* Fade-in animation */
 }
 
-/* Show Message Animation */
-@keyframes showMessage {
+/* Success Message Animation */
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -139,17 +158,9 @@ section#contact {
   }
 }
 
-/* Adjusting Scroll Behavior */
-html {
-  scroll-padding-top: 60px;
-}
-
-section#contact {
-  scroll-margin-top: 60px;
-}
-
+/* General Form Styling */
 .contact-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
@@ -163,51 +174,23 @@ section#contact {
 
 .contact-content {
   display: flex;
-  justify-content: space-between;
-  gap: 50px;
-  width: 100%;
-  max-width: 960px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
 }
 
 .contact-info-left {
-  flex: 1;
-  padding: 20px;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.info-item span {
-  font-size: 1.2rem;
-  color: #333;
-  margin-left: 10px;
-}
-
-.info-item a {
-  color: #e9967a;
-  text-decoration: none;
-}
-
-.info-item .icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-
-.info-gap {
-  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
 }
 
 .contact-form-right {
-  flex: 1;
+  width: 100%;
+  max-width: 600px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form-right form {
@@ -218,6 +201,7 @@ section#contact {
 
 .form-inputs {
   display: flex;
+  flex-direction: column;
   gap: 15px;
 }
 
@@ -245,55 +229,10 @@ section#contact {
   font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: auto;
-  max-width: 100%;
-  margin-top: 10px;
-  align-self: flex-start;
 }
 
 .contact-form-right button:hover {
   background-color: #c67c56;
-}
-
-/* Home Page Button Styling */
-.scroll-to-home {
-  position: fixed; /* Fixed position in the right corner */
-  bottom: 30px;
-  right: 30px;
-  background-color: #e9967a;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 15px;
-  font-size: 2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  z-index: 10; /* Ensure it's above all content */
-}
-
-.scroll-to-home:hover {
-  background-color: #c67c56;
-}
-
-.scroll-to-home i {
-  font-size: 2rem; /* FontAwesome Home Icon Size */
-}
-
-/* Bullet Indicator */
-.scroll-to-home .bullet {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 10px;
-  height: 10px;
-  background-color: #ff4500; /* Red color for bullet */
-  border-radius: 50%;
-  transition: transform 0.2s ease-in-out;
-}
-
-/* Bullet Animation on Hover */
-.scroll-to-home:hover .bullet {
-  transform: scale(1.2);
 }
 
 /* Responsive Design */
@@ -301,15 +240,6 @@ section#contact {
   section#contact {
     flex-direction: column;
     align-items: center;
-  }
-
-  .contact-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contact-info-left {
-    margin-bottom: 30px;
   }
 
   .contact-form-right {
