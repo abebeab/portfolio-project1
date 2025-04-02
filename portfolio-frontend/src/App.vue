@@ -28,10 +28,11 @@
       <About />  <!-- Include About component here -->
       <Portfolio />  <!-- Include Portfolio component here -->
       <Services />  <!-- Include Services component here -->
-      
-      <!-- Contact Section added here -->
       <Contact />  <!-- Include Contact component here -->
     </main>
+
+    <!-- Footer Section -->
+    <AppFooter /> <!-- Integrate the Footer Component here -->
   </div>
 </template>
 
@@ -40,8 +41,9 @@
 import HomeComponent from './components/HomeComponent.vue';
 import About from './components/About.vue';
 import Services from './components/Services.vue';
-import Portfolio from './components/Portfolio.vue';  // Import the Portfolio component
-import Contact from './components/Contact.vue';  // Import the Contact component
+import Portfolio from './components/Portfolio.vue';  
+import Contact from './components/Contact.vue';  
+import AppFooter from './components/AppFooter.vue';  // Import the AppFooter component
 
 export default {
   name: 'App',
@@ -49,8 +51,9 @@ export default {
     HomeComponent,
     About,
     Services,
-    Portfolio,  // Register Portfolio component
-    Contact,  // Register Contact component
+    Portfolio,  
+    Contact,  
+    AppFooter,  // Register the AppFooter component
   },
   data() {
     return {
@@ -79,7 +82,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color: #efdecd;
+  background-color:#d99058;
   color: #333;
   width: 100%;
   box-sizing: border-box;
@@ -121,6 +124,7 @@ export default {
   display: flex;
   margin: 0;
   padding: 0;
+  
 }
 
 .navbar li {
@@ -136,7 +140,7 @@ export default {
 }
 
 .navbar a:hover {
-  background-color: #555;
+  background-color:#f0f8ff;
 }
 
 /* Hamburger for mobile */
