@@ -1,130 +1,269 @@
-<!-- src/components/Header.vue -->
 <template>
-  <header class="header">
-    <div class="logo">
-      <i class="fas fa-laravel"></i>
-      <span>My Portfolio here!!</span>
-    </div>
-    <nav class="navbar">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact" class="contact-link">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="app">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="logo">
+        <img src="@/assets/icons/logo.png" alt="My Portfolio Logo" class="logo-img" />
+        <span class="logo-text">My Portfolio here!!</span>
+      </div>
+
+      <!-- Menu Container: "MENU" label and hamburger icon -->
+      <nav class="navbar">
+        <div class="menu-container">
+          <!-- MENU Label (shown on mobile) -->
+          <span class="menu-label">MENU</span>
+
+          <!-- Hamburger Icon for mobile view -->
+          <div class="hamburger" @click="toggleMenu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul :class="{ 'active': menuActive }">
+          <li><a href="#home" @click="scrollToSection('#home')" aria-label="Go to Home section">Home</a></li>
+          <li><a href="#about" @click="scrollToSection('#about')" aria-label="Go to About section">About</a></li>
+          <li><a href="#portfolio" @click="scrollToSection('#portfolio')" aria-label="Go to Portfolio section">Portfolio</a></li>
+          <li><a href="#services" @click="scrollToSection('#services')" aria-label="Go to Services section">Services</a></li>
+          <li><a href="#contact" @click="scrollToSection('#contact')" aria-label="Go to Contact section">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content Sections -->
+    <main>
+      <HomeComponent />  <!-- Include HomeComponent instead of Home.vue -->
+      <About />  <!-- Include About component here -->
+      <Portfolio />  <!-- Include Portfolio component here -->
+      <Services />  <!-- Include Services component here -->
+      <Contact />  <!-- Include Contact component here -->
+    </main>
+
+    <!-- Footer Section -->
+    <AppFooter /> <!-- Integrate the Footer Component here -->
+  </div>
 </template>
 
 <script>
+// Import components
+import HomeComponent from './components/HomeComponent.vue';
+import About from './components/About.vue';
+import Services from './components/Services.vue';
+import Portfolio from './components/Portfolio.vue';  
+import Contact from './components/Contact.vue';  
+import AppFooter from './components/AppFooter.vue';  // Import the AppFooter component
+
 export default {
-  name: 'AppHeader', // Change this to a multi-word name
-}
-</script><style scoped>
+  name: 'App',
+  components: {
+    HomeComponent,
+    About,
+    Services,
+    Portfolio,  
+    Contact,  
+    AppFooter,  // Register the AppFooter component
+  },
+  data() {
+    return {
+      menuActive: false,  // To toggle the menu on mobile
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuActive = !this.menuActive;  // Toggle the menu visibility
+    },
+    scrollToSection(id) {
+      const section = document.querySelector(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        this.menuActive = false;  // Close the mobile menu after clicking a link
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
 /* Global Styles */
-body {
-  font-family: Arial, sans-serif;
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  background-color: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  scroll-behavior: smooth; /* Enable smooth scrolling */
-}
-
-/* Static Header Styles */
-header {
-  display: flex; /* Flexbox layout for header */
-  justify-content: space-between; /* Space between logo and navbar */
-  align-items: center; /* Vertically center the items */
-  position: fixed; /* Fix the header at the top */
-  top: 0;
-  left: 0;
   width: 100%;
-  min-height: 50px;
-  background-color: #e9967a; /* Dark background for header */
-  color: white;
-  padding: 10px 30px; /* Added more horizontal padding for spacing */
-  z-index: 1000; /* Ensure the header stays on top */
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Logo Styles */
+#app {
+  max-width: 100%;
+  height: 100%;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #d99058;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: nowrap;
+}
+
 .logo {
   display: flex;
   align-items: center;
-  margin-right: auto; /* Push the logo to the left */
+  flex-direction: row;
+  justify-content: center;
 }
 
 .logo-img {
-  width: 80px; /* Set the width of the logo */
-  height: 80px; /* Set the height of the logo to make it a square */
-  border-radius: 50%; /* Make the logo circular */
-  object-fit: cover; /* Ensure the image is cropped to fit the circular shape */
-  margin-right: 10px; /* Space between logo and text */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
-.logo span {
+.logo-text {
   font-size: 1.5rem;
   font-weight: bold;
+  white-space: nowrap;
 }
 
-/* Navbar Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+}
+
 .navbar ul {
   list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
-  display: flex;
-  margin-right: 60px;
+  justify-content: space-between;
 }
 
 .navbar li {
-  margin-right: 0px; /* Space between links */
+  margin-left: 20px;
 }
 
 .navbar a {
-  color: white;
   text-decoration: none;
   font-size: 1.2rem;
-  padding: 8px 20px; /* Increased padding for better spacing */
+  padding: 8px 20px;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
 .navbar a:hover {
-  background-color: #555; /* Hover effect for navbar links */
+  background-color: #f0f8ff;
 }
 
-/* Section Styles */
-section {
-  padding: 60px 20px; /* Add padding to the sections to ensure content doesn't hide under header */
-  min-height: 300px; /* Ensure sections are tall enough */
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+  position: relative; /* Ensures it stays within the bounds of the header */
 }
 
-/* Specific margin-top for each section to prevent overlap with the header */
-#home, #about, #portfolio, #services, #contact {
-  margin-top: 80px; /* Add space for the fixed header */
-}
-
-/* Main Section Styles */
-main {
-  padding: 20px;
+.hamburger .bar {
+  height: 4px;
   width: 100%;
-  text-align: center;
-  background-color: #fff;
-  flex-grow: 1; /* Make sure the content grows to fill the space */
-}
-
-/* AppFooter Section */
-footer {
   background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: relative; /* Changed to relative to prevent overlap */
-  bottom: 0;
+  border-radius: 2px;
+}
+
+/* MENU Text positioned on the right side (for mobile view and inspection) */
+.menu-label {
+  display: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 20px;
+  color: #333;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 20px 15px; /* Reduce padding for mobile */
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #efdecd;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 20px 0;
+    margin: 0;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-top: 10px; /* Add space between the menu label and hamburger icon */
+    position: relative;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .navbar a {
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+  }
+
+  /* Show the MENU text on smaller screens (inspection) and position it in line with hamburger */
+  .menu-label {
+    display: block;
+    margin-right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
+  }
+
+  .logo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-img {
+    margin-bottom: 10px;
+  }
+
+  .menu-container {
+    flex-direction: column; /* Stack the "MENU" label and hamburger vertically */
+    align-items: center; /* Center both elements */
+  }
 }
 </style>

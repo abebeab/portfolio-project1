@@ -3,18 +3,22 @@
     <!-- Header Section -->
     <header class="header">
       <div class="logo">
-        <img src="@/assets/icons/logo.png" alt="Logo" class="logo-img" />
+        <img src="@/assets/icons/logo.png" alt="My Portfolio Logo" class="logo-img" />
         <span class="logo-text">My Portfolio here!!</span>
       </div>
-      <nav class="navbar">
-        <!-- MENU Text and Hamburger Icon in One Line -->
-        <span class="menu-label">MENU</span>
 
-        <!-- Hamburger Icon for mobile view -->
-        <div class="hamburger" @click="toggleMenu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+      <!-- Menu Container: "MENU" label and hamburger icon -->
+      <nav class="navbar">
+        <div class="menu-container">
+          <!-- MENU Label (shown on mobile) -->
+          <span class="menu-label">MENU</span>
+
+          <!-- Hamburger Icon for mobile view -->
+          <div class="hamburger" @click="toggleMenu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
         </div>
 
         <!-- Navigation Links -->
@@ -82,13 +86,27 @@ export default {
 </script>
 
 <style scoped>
+/* Global Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+#app {
+  max-width: 100%;
+  height: 100%;
+}
+
 /* Header Styles */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color:#d99058;
+  background-color: #d99058;
   color: #333;
   width: 100%;
   box-sizing: border-box;
@@ -96,13 +114,13 @@ export default {
   position: sticky;
   top: 0;
   z-index: 1000;
-  flex-wrap: nowrap;  /* Prevent wrapping of elements */
+  flex-wrap: nowrap;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -132,6 +150,7 @@ export default {
   display: flex;
   margin: 0;
   padding: 0;
+  justify-content: space-between;
 }
 
 .navbar li {
@@ -147,7 +166,7 @@ export default {
 }
 
 .navbar a:hover {
-  background-color:#f0f8ff;
+  background-color: #f0f8ff;
 }
 
 /* Hamburger for mobile */
@@ -176,6 +195,13 @@ export default {
   color: #333;
 }
 
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .navbar ul {
     display: none;
@@ -185,33 +211,53 @@ export default {
     right: 0;
     background-color: #efdecd;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 20px 0;
   }
 
   .navbar ul.active {
     display: flex;
   }
 
+  /* Stack the "MENU" label and hamburger vertically on mobile */
+  .menu-container {
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center both elements */
+    justify-content: center;
+  }
+
   .hamburger {
     display: flex;
+    margin-top: 10px; /* Space between the "MENU" label and hamburger icon */
   }
 
   .navbar li {
     margin: 10px 0;
+    text-align: center;
   }
 
   .navbar a {
     width: 100%;
     text-align: left;
+    padding: 15px 20px;
   }
 
-  /* Show the MENU text on smaller screens (inspection) and position it in line with hamburger */
+  /* Show the MENU text on smaller screens */
   .menu-label {
     display: block;
-    margin-right: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
     margin-top: 5px;
+  }
+
+  .logo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-img {
+    margin-bottom: 10px;
   }
 }
 </style>

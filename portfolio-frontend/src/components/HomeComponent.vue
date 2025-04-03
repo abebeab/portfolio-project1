@@ -109,6 +109,7 @@ html {
 
 .home-text p {
   margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .intro-text {
@@ -121,6 +122,7 @@ html {
   font-family: 'Roboto', sans-serif;
   line-height: 1.2;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .services {
@@ -134,6 +136,7 @@ html {
   color: white;
   border: none;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 .work-button:hover {
@@ -170,9 +173,9 @@ html {
 /* Image section styling */
 .home-image {
   flex: 1; /* Allow the image to take up remaining space */
-  text-align: center; /* Center the image */
+  text-align: left; /* Center the image */
   position: relative; /* Make sure the button is positioned relative to the image container */
-}
+  margin-right:10px;}
 
 /* Image Styling */
 .home-image img {
@@ -185,10 +188,10 @@ html {
 /* Download Resume button styling */
 .download-button {
   position: absolute; /* Position the button absolutely relative to the image container */
-  bottom: -100px; /* Position the button 20px from the bottom of the image */
-  right: -100px; /* Position the button 20px from the right of the image */
-  padding: 15px 25px; /* Adjusted padding for button height */
-  font-size: 18px; /* Adjust text size */
+  bottom: -50px; /* Position the button 20px from the bottom of the image */
+  right: 20px; /* Position the button 20px from the right of the image */
+  padding: 5px 5px; /* Adjusted padding for button height */
+  font-size: 15px; /* Adjust text size */
   background-color: #007bff;
   color: white;
   border: none;
