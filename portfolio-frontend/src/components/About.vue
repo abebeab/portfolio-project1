@@ -18,9 +18,9 @@
           I'm a passionate web developer, dedicated to building high-quality websites. I specialize in frontend and backend technologies, creating responsive and interactive web applications. My focus is always on delivering the best user experience while ensuring optimal performance. Let's collaborate to create something amazing and bring your ideas to life!
         </p>
 
-        <!-- Button -->
-        <p class="button-paragraph">
-          <button class="contact-button">Contact Me</button>
+         <!-- Contact Me -->
+         <p class="button-paragraph">
+          <button @click="scrollToContact" class="contact-button">Contact Me</button>
         </p>
       </div>
     </div>
@@ -67,6 +67,15 @@
 <script>
 export default {
   name: 'AboutSection',  // Multi-word component name
+  methods: {
+    scrollToContact() {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+  },
+
 }
 </script>
 

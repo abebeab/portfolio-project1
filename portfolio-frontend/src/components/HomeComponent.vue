@@ -43,9 +43,11 @@
       <!-- Right side: Image -->
       <div class="home-image">
         <img src="@/assets/apprnt.jpg" alt="About Me" />
-        <p class="course-button-paragraph">
-          <button @click="scrollToContact" class="course-button">Get the Course</button>
-        </p>
+        
+        <!-- Download Resume Button at the bottom-right corner -->
+        <button @click="downloadResume" class="download-button">
+          <span>Download Resume</span>
+        </button>
       </div>
     </div>
   </section>
@@ -60,7 +62,14 @@ export default {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
     },
-  },
+    downloadResume() {
+      // Trigger the download of the resume file
+      const link = document.createElement('a');
+      link.href = "https://drive.google.com/uc?export=download&id=1CdnQ_zm-tOCBuZ8cZbcikFKHjcFEZq1Z";  // Correct Google Drive download link
+      link.download = 'Abebe_Resume.pdf';  // Filename to be saved as
+      link.click(); // Programmatically click to trigger the download
+    }
+  }
 };
 </script>
 
@@ -137,7 +146,6 @@ html {
   font-size: 18px;
   margin-bottom: 20px; /* Add space after the text */
 }
-
 /* Social links and icons styling */
 .social-links {
   display: flex;
@@ -147,15 +155,17 @@ html {
 }
 
 .social-icon img {
-  width: 50px; /* Increase the width of the social icons */
-  height: 50px; /* Increase the height of the social icons */
-  object-fit: contain;
+  width: 70px; /* Increased size for the social icons */
+  height: 70px; /* Increased height for the social icons */
+  object-fit: cover;
+  border-radius: 50%; /* Make the icons circular */
   transition: transform 0.3s ease; /* Smooth scaling on hover */
 }
 
 .social-icon img:hover {
-  transform: scale(1.2); /* Scale up the icons on hover */
+  transform: scale(1.3); /* Scale up the icons on hover */
 }
+
 
 /* Image section styling */
 .home-image {
@@ -164,6 +174,7 @@ html {
   position: relative; /* Make sure the button is positioned relative to the image container */
 }
 
+/* Image Styling */
 .home-image img {
   width: 500px; /* Increased width for the image */
   height: 300px; /* Set a fixed height for the image */
@@ -171,24 +182,31 @@ html {
   max-width: 100%; /* Ensure the image is responsive */
 }
 
-/* Course button styling */
-.course-button-paragraph {
-  margin-top: 20px; /* Add space between the image and the button */
-  text-align: center; /* Center the button */
-}
-
-.course-button {
-  padding: 12px 25px;
+/* Download Resume button styling */
+.download-button {
+  position: absolute; /* Position the button absolutely relative to the image container */
+  bottom: -100px; /* Position the button 20px from the bottom of the image */
+  right: -100px; /* Position the button 20px from the right of the image */
+  padding: 15px 25px; /* Adjusted padding for button height */
+  font-size: 18px; /* Adjust text size */
   background-color: #007bff;
   color: white;
   border: none;
-  font-size: 18px;
   cursor: pointer;
-  border-radius: 5px;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
-.course-button:hover {
-  background-color: #0056b3;
+/* Hover state for the button */
+.download-button:hover {
+  background-color: #0056b3; /* Darken the button on hover */
+}
+
+/* Text styling inside the button */
+.download-button span {
+  display: inline-block;
+  line-height: 1.2;
 }
 </style>
