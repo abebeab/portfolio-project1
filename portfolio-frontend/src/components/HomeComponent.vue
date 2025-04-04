@@ -15,7 +15,7 @@
 
         <!-- Work with me button -->
         <p class="button-paragraph">
-          <button @click="scrollToContact" class="work-button">Work with Me</button>
+          <button @click="scrollToContact" class="work-button" aria-label="Scroll to contact section">Work with Me</button>
         </p>
 
         <!-- Follow me on section -->
@@ -25,16 +25,16 @@
 
         <!-- Social links horizontally under Follow me on -->
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
+          <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon" aria-label="LinkedIn">
             <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn">
           </a>
-          <a href="https://t.me/ab_se7p" target="_blank" class="social-icon">
+          <a href="https://t.me/ab_se7p" target="_blank" class="social-icon" aria-label="Telegram">
             <img src="../assets/icons/telegram-icon.jpg" alt="Telegram">
           </a>
-          <a href="https://github.com/abebeab" target="_blank" class="social-icon">
+          <a href="https://github.com/abebeab" target="_blank" class="social-icon" aria-label="GitHub">
             <img src="../assets/icons/github-icon.jpg" alt="GitHub">
           </a>
-          <a href="https://www.upwork.com/freelancers/~01d347dbe89190526d?mp_source=share" target="_blank" class="social-icon">
+          <a href="https://www.upwork.com/freelancers/~01d347dbe89190526d?mp_source=share" target="_blank" class="social-icon" aria-label="Upwork">
             <img src="../assets/icons/upwork-icon.jpg" alt="Upwork">
           </a>
         </div>
@@ -43,9 +43,9 @@
       <!-- Right side: Image -->
       <div class="home-image">
         <img src="@/assets/apprnt.jpg" alt="About Me" />
-        
+
         <!-- Download Resume Button at the bottom-right corner -->
-        <button @click="downloadResume" class="download-button">
+        <button @click="downloadResume" class="download-button" aria-label="Download Resume">
           <span>Download Resume</span>
         </button>
       </div>
@@ -65,7 +65,7 @@ export default {
     downloadResume() {
       // Trigger the download of the resume file
       const link = document.createElement('a');
-      link.href = "https://drive.google.com/uc?export=download&id=1CdnQ_zm-tOCBuZ8cZbcikFKHjcFEZq1Z";  // Correct Google Drive download link
+      link.href = "https://drive.google.com/uc?export=download&id=1Nrh0r1eJ7HHIbhiZVSGA1Gtfxp7zcnfc";  // Correct Google Drive download link
       link.download = 'Abebe_Resume.pdf';  // Filename to be saved as
       link.click(); // Programmatically click to trigger the download
     }
@@ -149,6 +149,7 @@ html {
   font-size: 18px;
   margin-bottom: 20px; /* Add space after the text */
 }
+
 /* Social links and icons styling */
 .social-links {
   display: flex;
@@ -169,13 +170,13 @@ html {
   transform: scale(1.3); /* Scale up the icons on hover */
 }
 
-
 /* Image section styling */
 .home-image {
   flex: 1; /* Allow the image to take up remaining space */
   text-align: left; /* Center the image */
   position: relative; /* Make sure the button is positioned relative to the image container */
-  margin-right:10px;}
+  margin-right:10px;
+}
 
 /* Image Styling */
 .home-image img {
