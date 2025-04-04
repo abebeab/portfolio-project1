@@ -13,6 +13,12 @@
       <button class="portfolio-btn" @click="filterProjects('Document Analysis')">Document Analysis</button>
     </div>
 
+    <!-- Show selected category description -->
+    <div v-if="selectedCategory !== 'All'" class="category-description">
+      <h3>{{ selectedCategory }} Category</h3>
+      <p>{{ categoryDescriptions[selectedCategory] }}</p>
+    </div>
+
     <!-- Portfolio Projects -->
     <div class="portfolio-projects">
       <div class="portfolio-project" v-for="project in filteredProjects" :key="project.title">
@@ -96,7 +102,15 @@ export default {
           category: 'Document Analysis'
         }
       ],
-      selectedCategory: 'All'
+      selectedCategory: 'All',
+      categoryDescriptions: {
+        'Java': 'Java category includes projects that involve backend development using Java.',
+        'PHP': 'PHP category involves full-stack development, building responsive web applications using PHP and MySQL.',
+        'Virtual Assistant': 'This category includes virtual assistant tasks and administrative support services for clients.',
+        'IT Support': 'IT Support category covers services related to network configurations and remote support for businesses.',
+        'Document Analysis': 'Document Analysis category involves tasks such as reviewing, organizing, and analyzing documents for accuracy.',
+        'All': 'Displaying all projects across various technologies and roles.'
+      }
     };
   },
   computed: {
@@ -121,11 +135,11 @@ section#portfolio {
   margin-bottom: 40px;
   padding: 40px 20px;
   min-height: 350px;
-  background-color: #f3f6f9; /* Soft background */
-  color: #333; /* Dark text for readability */
+  background-color: #f3f6f9;
+  color: #333;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  transition: background-color 0.3s ease; /* Transition effect on background change */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
 /* Title Styling */
@@ -133,7 +147,7 @@ h2.section-title {
   font-size: 3.5rem;
   font-weight: 700;
   text-align: center;
-  color: #2a9d8f; /* Fresh color for the title */
+  color: #2a9d8f;
   text-transform: uppercase;
   margin-bottom: 20px;
   letter-spacing: 2px;
@@ -151,10 +165,9 @@ p.section-description {
 
 /* Buttons Styling */
 .portfolio-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
   margin-top: 20px;
 }
 
@@ -173,9 +186,27 @@ p.section-description {
 }
 
 .portfolio-btn:hover {
-  background-color: #264653; /* Darken button on hover */
-  transform: translateY(-4px); /* Button lift effect */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  background-color: #264653;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Category Description Styling */
+.category-description {
+  background-color: #e9f7f6;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.category-description h3 {
+  color: #264653;
+  font-size: 2rem;
+}
+
+.category-description p {
+  font-size: 1.2rem;
+  color: #333;
 }
 
 /* Portfolio Project Styling */
@@ -189,12 +220,12 @@ p.section-description {
 }
 
 .portfolio-project:hover {
-  transform: translateY(-8px); /* Lift effect on project hover */
+  transform: translateY(-8px);
 }
 
 .project-title {
   font-size: 2.2rem;
-  color: #264653; /* Dark title color */
+  color: #264653;
   margin-bottom: 10px;
 }
 
@@ -226,7 +257,7 @@ p.section-description {
 .project-technologies {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #2a9d8f; /* Fresh color for technologies */
+  color: #2a9d8f;
 }
 
 /* Responsive Design */
@@ -234,6 +265,7 @@ p.section-description {
   .portfolio-btn {
     padding: 12px 25px;
     font-size: 1.1rem;
+    border-radius: 20px;
   }
 
   .portfolio-project {
