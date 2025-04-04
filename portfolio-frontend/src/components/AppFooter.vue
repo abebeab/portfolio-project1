@@ -103,7 +103,7 @@ export default {
 .company-name {
   font-size: 2rem;
   font-weight: bold;
-  color: #ff6347;
+  color: #007fff;
   text-transform: uppercase;
 }
 
