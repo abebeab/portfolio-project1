@@ -7,7 +7,7 @@
 
     <!-- Success Message -->
     <div v-if="formSubmitted" class="success-message">
-      Thank You! The Message was Submitted Successfully!
+      Thank You! The Message is Submitted Successfully! Please Check your Email!
     </div>
 
     <div class="contact-content">

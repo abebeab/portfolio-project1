@@ -191,7 +191,7 @@ html, body {
   display: none;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-right: 20px;
+  margin-right: 37px;
   color: #333;
 }
 
@@ -203,6 +203,11 @@ html, body {
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 20px 15px;
+    height: auto; /* Ensure the header has enough height to accommodate the dropdown */
+  }
+
   .navbar ul {
     display: none;
     flex-direction: column;
@@ -213,10 +218,14 @@ html, body {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     padding: 20px 0;
+    margin: 0;
+    z-index: 999; /* Ensure the menu is above other elements */
+    overflow: hidden; /* Prevent overflow beyond the header */
   }
 
   .navbar ul.active {
     display: flex;
+    overflow: visible; /* Ensure the menu doesn't get cut off when it becomes active */
   }
 
   /* Stack the "MENU" label and hamburger vertically on mobile */
@@ -259,5 +268,11 @@ html, body {
   .logo-img {
     margin-bottom: 10px;
   }
+}
+
+/* Adjustments for preventing Portfolio and Services sections from extending out */
+.portfolio, .services {
+  position: relative;
+  z-index: 1; /* Ensure these sections don't go behind the menu */
 }
 </style>

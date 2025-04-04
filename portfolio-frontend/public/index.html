@@ -23,13 +23,26 @@
 
   <!-- Custom Styles for the icon -->
   <style>
+    /* Styling for the circular icon */
     .contact-icon {
-      font-size: 40px; /* Adjust icon size */
-      color: #e9967a; /* Adjust the color of the icon */
+      font-size: 60px; /* Increased icon size for better visibility */
+      color: #fff; /* White color for the icon */
       position: fixed;
       bottom: 20px;
       right: 20px; /* Position it at the bottom-right corner */
       cursor: pointer;
+      
+      /* Make the icon appear as a circle */
+      padding: 20px; /* Increase padding to make the circle bigger */
+      background-color: #e9967a; /* Adjusted background color for better visibility */
+      border-radius: 50%; /* Makes it a perfect circle */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add a more prominent shadow for depth */
+      transition: all 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    /* Hover effect to make the icon slightly bigger */
+    .contact-icon:hover {
+      transform: scale(1.1); /* Slightly enlarge the icon on hover */
     }
 
     /* Ensures there are no extra icons at the bottom center */
@@ -47,7 +60,7 @@
     <i class="fas fa-home contact-icon"></i> <!-- FontAwesome Home Icon -->
   </a>
 
-  <!-- Script for Vue.js application -->
+  <!-- Vue.js application will be initialized here -->
   <script src="/js/app.js"></script>
 </body>
 

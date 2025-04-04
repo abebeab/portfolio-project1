@@ -3,8 +3,8 @@
     <!-- Header Section -->
     <header class="header">
       <div class="logo">
-        <img src="@/assets/icons/logo.png" alt="My Portfolio Logo" class="logo-img" />
-        <span class="logo-text">My Portfolio here!!</span>
+        <img src="@/assets/icons/logo.png" alt="Super Digital Hitech Logo" class="logo-img" />
+        <span class="logo-text">Super Digital Hitech</span>
       </div>
 
       <!-- Menu Container: "MENU" label and hamburger icon -->
@@ -34,15 +34,15 @@
 
     <!-- Main Content Sections -->
     <main>
-      <HomeComponent />  <!-- Include HomeComponent instead of Home.vue -->
-      <About />  <!-- Include About component here -->
-      <Portfolio />  <!-- Include Portfolio component here -->
-      <Services />  <!-- Include Services component here -->
-      <Contact />  <!-- Include Contact component here -->
+      <HomeComponent />  
+      <About />  
+      <Portfolio />  
+      <Services />  
+      <Contact />  
     </main>
 
     <!-- Footer Section -->
-    <AppFooter /> <!-- Integrate the Footer Component here -->
+    <AppFooter /> 
   </div>
 </template>
 
@@ -53,7 +53,7 @@ import About from './components/About.vue';
 import Services from './components/Services.vue';
 import Portfolio from './components/Portfolio.vue';  
 import Contact from './components/Contact.vue';  
-import AppFooter from './components/AppFooter.vue';  // Import the AppFooter component
+import AppFooter from './components/AppFooter.vue';  
 
 export default {
   name: 'App',
@@ -63,22 +63,22 @@ export default {
     Services,
     Portfolio,  
     Contact,  
-    AppFooter,  // Register the AppFooter component
+    AppFooter,  
   },
   data() {
     return {
-      menuActive: false,  // To toggle the menu on mobile
+      menuActive: false,  
     };
   },
   methods: {
     toggleMenu() {
-      this.menuActive = !this.menuActive;  // Toggle the menu visibility
+      this.menuActive = !this.menuActive;  
     },
     scrollToSection(id) {
       const section = document.querySelector(id);
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
-        this.menuActive = false;  // Close the mobile menu after clicking a link
+        this.menuActive = false;  
       }
     },
   },
@@ -92,7 +92,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
 }
 
 #app {
@@ -106,11 +106,11 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color: #d99058;
-  color: #333;
+  background-color: #2c3e50; /* Dark, professional background */
+  color: #fff;
   width: 100%;
   box-sizing: border-box;
-  min-height: 80px;
+  min-height: 100px; /* Increased height for a larger header */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -122,19 +122,27 @@ html, body {
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  text-align: center;
 }
 
 .logo-img {
-  width: 50px;
-  height: 50px;
+  width: 180px; /* Set logo size to 180px for larger desktop view */
+  height: 180px; /* Set logo height to 180px for larger desktop view */
   border-radius: 50%;
-  margin-right: 15px;
+  margin-right: 20px; /* Space between logo and text */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling */
+}
+
+.logo-img:hover {
+  transform: scale(1.15); /* Slightly enlarge logo on hover */
 }
 
 .logo-text {
-  font-size: 1.5rem;
+  font-size: 2rem; /* Increased font size */
   font-weight: bold;
-  white-space: nowrap;
+  color: #f39c12; /* Bright color to match the tech vibe */
+  text-transform: uppercase; /* Make text stand out */
+  letter-spacing: 3px; /* Spacing for a more stylish effect */
 }
 
 .navbar {
@@ -154,7 +162,7 @@ html, body {
 }
 
 .navbar li {
-  margin-left: 20px;
+  margin-left: 30px; /* More space between items */
 }
 
 .navbar a {
@@ -162,11 +170,13 @@ html, body {
   font-size: 1.2rem;
   padding: 8px 20px;
   border-radius: 5px;
+  color: #fff;
   transition: background-color 0.3s;
 }
 
 .navbar a:hover {
-  background-color: #f0f8ff;
+  background-color: #f39c12;
+  color: #333; /* Hover effect for better visibility */
 }
 
 /* Hamburger for mobile */
@@ -177,13 +187,12 @@ html, body {
   height: 24px;
   width: 30px;
   cursor: pointer;
-  position: relative; /* Ensures it stays within the bounds of the header */
 }
 
 .hamburger .bar {
   height: 4px;
   width: 100%;
-  background-color: #333;
+  background-color: #fff;
   border-radius: 2px;
 }
 
@@ -193,7 +202,7 @@ html, body {
   font-size: 1.2rem;
   font-weight: bold;
   margin-right: 20px;
-  color: #333;
+  color: #fff;
 }
 
 .menu-container {
@@ -205,7 +214,7 @@ html, body {
 
 @media (max-width: 768px) {
   .header {
-    padding: 20px 15px; /* Reduce padding for mobile */
+    padding: 20px 15px;
   }
 
   .navbar ul {
@@ -214,7 +223,7 @@ html, body {
     position: absolute;
     top: 60px;
     right: 0;
-    background-color: #efdecd;
+    background-color: #34495e;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     padding: 20px 0;
@@ -227,8 +236,6 @@ html, body {
 
   .hamburger {
     display: flex;
-    margin-top: 10px; /* Add space between the menu label and hamburger icon */
-    position: relative;
   }
 
   .navbar li {
@@ -242,13 +249,12 @@ html, body {
     padding: 15px 20px;
   }
 
-  /* Show the MENU text on smaller screens (inspection) and position it in line with hamburger */
   .menu-label {
     display: block;
     margin-right: 20px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #333;
+    color: #fff;
     margin-top: 5px;
   }
 
@@ -258,12 +264,19 @@ html, body {
   }
 
   .logo-img {
-    margin-bottom: 10px;
+    width: 150px; /* Increase size for mobile */
+    height: 150px; /* Increase size for mobile */
+    margin-bottom: 10px; /* Space between logo and text on mobile */
+    transition: transform 0.3s ease; /* Smooth scaling for mobile */
+  }
+
+  .logo-img:hover {
+    transform: scale(1.2); /* Slightly enlarge logo on hover for mobile */
   }
 
   .menu-container {
-    flex-direction: column; /* Stack the "MENU" label and hamburger vertically */
-    align-items: center; /* Center both elements */
+    flex-direction: column;
+    align-items: center;
   }
 }
 </style>
