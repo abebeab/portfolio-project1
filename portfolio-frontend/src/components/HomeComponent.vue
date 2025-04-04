@@ -1,5 +1,5 @@
 <template>
-  <!-- Brand Name Animation (Placed Above Home Section) -->
+  <!-- Brand Name Animation Section -->
   <section id="brand-animation">
     <div class="brand-animation">
       <p class="brand-text" id="brand-text">
@@ -8,6 +8,7 @@
     </div>
   </section>
 
+  <!-- Home Section -->
   <section id="home">
     <div class="home-container">
       <!-- Left side: Text content -->
@@ -16,54 +17,45 @@
           Hey, I'm Abebe 👋
         </p>
         <p class="description">
-          I build and design <br /> web interfaces
+          I build and design web interfaces.
         </p>
         <p class="services">
-          Work with me about website development, mobile application  <br />development,networking, and IT support services. I'm open to new projects!
+          I offer services in website development, mobile application development, networking, and IT support.
         </p>
 
         <!-- Work with me button -->
-        <p class="button-paragraph">
-          <button @click="scrollToContact" class="work-button" aria-label="Scroll to contact section">Work with Me</button>
-        </p>
+        <button @click="scrollToContact" class="work-button">Work with Me</button>
 
         <!-- Follow me on section -->
-        <p class="follow-text">
-          Follow me on
-        </p>
-
-        <!-- Social links horizontally under Follow me on -->
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon" aria-label="LinkedIn">
-            <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn">
-          </a>
-          <a href="https://t.me/ab_se7p" target="_blank" class="social-icon" aria-label="Telegram">
-            <img src="../assets/icons/telegram-icon.jpg" alt="Telegram">
-          </a>
-          <a href="https://github.com/abebeab" target="_blank" class="social-icon" aria-label="GitHub">
-            <img src="../assets/icons/github-icon.jpg" alt="GitHub">
-          </a>
-          <a href="https://www.upwork.com/freelancers/~01d347dbe89190526d?mp_source=share" target="_blank" class="social-icon" aria-label="Upwork">
-            <img src="../assets/icons/upwork-icon.jpg" alt="Upwork">
-          </a>
+        <div class="follow-text">
+          <p>Follow me on</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
+              <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn">
+            </a>
+            <a href="https://t.me/ab_se7p" target="_blank" class="social-icon">
+              <img src="../assets/icons/telegram-icon.jpg" alt="Telegram">
+            </a>
+            <a href="https://github.com/abebeab" target="_blank" class="social-icon">
+              <img src="../assets/icons/github-icon.jpg" alt="GitHub">
+            </a>
+            <a href="https://www.upwork.com/freelancers/~01d347dbe89190526d?mp_source=share" target="_blank" class="social-icon">
+              <img src="../assets/icons/upwork-icon.jpg" alt="Upwork">
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- Right side: Image -->
       <div class="home-image">
         <img src="@/assets/apprnt.jpg" alt="About Me" />
-
-        <!-- Download Resume Button at the bottom-right corner -->
-        <button @click="downloadResume" class="download-button" aria-label="Download Resume">
+        
+        <!-- Download Resume Button -->
+        <button @click="downloadResume" class="download-button">
           <span>Download Resume</span>
         </button>
       </div>
     </div>
-  </section>
-
-  <!-- About Section (just an example for where to place your content) -->
-  <section id="about">
-    <!-- About content goes here -->
   </section>
 </template>
 
@@ -77,11 +69,10 @@ export default {
       }
     },
     downloadResume() {
-      // Trigger the download of the resume file
       const link = document.createElement('a');
-      link.href = "https://drive.google.com/uc?export=download&id=1Nrh0r1eJ7HHIbhiZVSGA1Gtfxp7zcnfc";  // Correct Google Drive download link
-      link.download = 'Abebe_Resume.pdf';  // Filename to be saved as
-      link.click(); // Programmatically click to trigger the download
+      link.href = "https://drive.google.com/uc?export=download&id=1CdnQ_zm-tOCBuZ8cZbcikFKHjcFEZq1Z"; 
+      link.download = 'Abebe_Resume.pdf'; 
+      link.click(); 
     },
     startTypingEffect() {
       const brandTextElement = document.getElementById('brand-text');
@@ -114,17 +105,21 @@ export default {
 </script>
 
 <style scoped>
-/* Smooth scrolling */
+/* Base layout settings */
 html {
   scroll-behavior: smooth;
 }
 
-/* Brand Name Animation (Fixed in center with Blue-Green Gradient) */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
 #brand-animation {
   position: fixed;
   top: 15%;
-  left: 0%;
-  transform: translateX(5%);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 9990;
   text-align: center;
 }
@@ -143,130 +138,154 @@ html {
   overflow: hidden;
 }
 
-/* Home section styling */
+/* Home Section */
 #home {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 0px);
-  width: 100%;
-  background-color: #f0f4f8;
-  margin-top: 30px;
-  padding: 20px 0;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  padding: 40px;
 }
 
-/* Container to hold content inside the home section */
 .home-container {
   display: flex;
-  justify-content: space-between; /* Space between the text and image */
+  justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
   max-width: 1200px;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .home-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center; /* Center-align the text */
-  gap: 10px; /* Reduced gap between the lines of text */
-  margin-bottom: 10; /* Reduced margin to bring it closer */
+  flex: 1;
+  text-align: left;
+  padding: 20px;
 }
 
 .intro-text {
-  font-size: 24px;
-  margin-top: 150px; /* Adjusted margin for better spacing */
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .description {
-  font-size: 50px; /* Reduced size for a more compact look */
+  font-size: 42px;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.2;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.3;
 }
 
 .services {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 18px;
   margin-bottom: 20px;
-  color: #333;
+  color: #777;
 }
 
 .work-button {
-  padding: 10px 20px;
+  padding: 12px 20px;
   background-color: #4CAF50;
   color: white;
+  font-size: 16px;
   border: none;
   cursor: pointer;
-  margin-top: 10px; /* Reduced margin for less space */
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .work-button:hover {
   background-color: #45a049;
 }
 
-/* Follow me on section */
-.follow-text {
-  margin-top: 10px; /* Reduced margin */
-  font-size: 16px;
-  margin-bottom: 10px; /* Reduced bottom margin */
+.follow-text p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .social-links {
   display: flex;
-  justify-content: center;
-  gap: 10px; /* Reduced space between icons */
-  margin-bottom: 100px;
+  gap: 15px;
 }
 
 .social-icon img {
-  width: 60px; /* Reduced size for compactness */
-  height: 60px; /* Reduced size for compactness */
-  object-fit: cover;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
 .social-icon img:hover {
-  transform: scale(1.2); /* Slightly smaller hover effect */
+  transform: scale(1.2);
 }
 
-/* Image section styling */
+/* Image section */
 .home-image {
   flex: 1;
-  text-align: left;
+  text-align: center;
   position: relative;
-  
 }
 
 .home-image img {
-  width: 60px; /* Reduced width */
-  height: 400px; /* Reduced height */
-  object-fit: cover;
-  max-width: 0%;
-  margin-left: 0px; /* Reduced margin for better balance */
-  margin-top: 40px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .download-button {
-  position: absolute;
-  bottom: -80px;
-  right: -20px;
-  padding: 5px 10px; /* Adjusted padding for compactness */
-  font-size: 14px;
+  position: relative;
+  bottom: -30px;
+  right: 0;
+  padding: 12px 20px;
   background-color: #007bff;
   color: white;
   border: none;
+  font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .download-button:hover {
   background-color: #0056b3;
 }
 
-.download-button span {
-  display: inline-block;
-  line-height: 1.2;
+/* Media Queries */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .home-text {
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 32px;
+  }
+
+  .services {
+    font-size: 16px;
+  }
+
+  .social-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .home-image img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 </style>
