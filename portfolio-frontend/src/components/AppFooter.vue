@@ -10,9 +10,9 @@
       <!-- Copyright Notice -->
       <p class="footer-text">&copy; 2025 All rights reserved. This portfolio is made with ❤️ by Abebe Tafere</p>
 
-      <!-- "Super Digital Hitec" Announcement Section -->
+      <!-- "Super Digital tec" Announcement Section -->
       <div class="company-announcement">
-        <p class="company-name"><strong>Super Digital Hi-Tec</strong></p>
+        <p class="company-name"><strong>Super Digital Tec</strong></p>
         <p class="coming-soon-text">🚀 Launching Soon! Stay tuned for the future !!</p> </div>
       <!-- Social Media Links (Right-aligned) -->
       <div class="social-links">
@@ -44,11 +44,13 @@ export default {
 .footer {
   background: linear-gradient(135deg, #6a1b9a, #ff4081); /* Gradient background */
   color: #fff; /* White text color for contrast */
-  padding: 40px 20px;
+  padding: -10px -10px;
   text-align: center;
   position: relative;
+  margin-right: 20px;
   width: 100%;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow on the top */
+
 }
 
 /* Footer Container */
@@ -60,6 +62,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 }
 
 /* Contact Information */

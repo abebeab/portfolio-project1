@@ -1,4 +1,13 @@
 <template>
+  <!-- Brand Name Animation (Placed Above Home Section) -->
+  <section id="brand-animation">
+    <div class="brand-animation">
+      <p class="brand-text" id="brand-text">
+        🚀 Super Digital Tec
+      </p>
+    </div>
+  </section>
+
   <section id="home">
     <div class="home-container">
       <!-- Left side: Text content -->
@@ -7,10 +16,10 @@
           Hey, I'm Abebe 👋
         </p>
         <p class="description">
-          I build and design web interfaces
+          I build and design <br /> web interfaces
         </p>
         <p class="services">
-          Work with me about website development, mobile application development, networking, and IT support services. I'm open to new projects!
+          Work with me about website development, mobile application  <br />development,networking, and IT support services. I'm open to new projects!
         </p>
 
         <!-- Work with me button -->
@@ -51,6 +60,11 @@
       </div>
     </div>
   </section>
+
+  <!-- About Section (just an example for where to place your content) -->
+  <section id="about">
+    <!-- About content goes here -->
+  </section>
 </template>
 
 <script>
@@ -68,7 +82,33 @@ export default {
       link.href = "https://drive.google.com/uc?export=download&id=1Nrh0r1eJ7HHIbhiZVSGA1Gtfxp7zcnfc";  // Correct Google Drive download link
       link.download = 'Abebe_Resume.pdf';  // Filename to be saved as
       link.click(); // Programmatically click to trigger the download
+    },
+    startTypingEffect() {
+      const brandTextElement = document.getElementById('brand-text');
+      const text = "🚀 Super Digital Tec"; // Fixed text to type
+      let i = 0;
+      brandTextElement.textContent = ''; // Clear text initially
+
+      // Function for typing effect with looping
+      const typingInterval = () => {
+        if (i < text.length) {
+          brandTextElement.textContent += text[i];
+          i++;
+          setTimeout(typingInterval, 100); // Continue typing
+        } else {
+          setTimeout(() => {
+            brandTextElement.textContent = ''; // Reset the text to empty
+            i = 0; // Reset the index
+            typingInterval(); // Restart typing after a delay
+          }, 1000); // Adjust the delay before restarting (1 second)
+        }
+      };
+
+      typingInterval(); // Start typing effect
     }
+  },
+  mounted() {
+    this.startTypingEffect(); // Start the typing effect when the page is loaded
   }
 };
 </script>
@@ -79,64 +119,87 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Brand Name Animation (Fixed in center with Blue-Green Gradient) */
+#brand-animation {
+  position: fixed;
+  top: 15%;
+  left: 0%;
+  transform: translateX(5%);
+  z-index: 9990;
+  text-align: center;
+}
+
+.brand-animation .brand-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: normal;
+  background: linear-gradient(90deg, #007bff, #00d2b7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  letter-spacing: 2px;
+  overflow: hidden;
+}
+
 /* Home section styling */
 #home {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 0px); /* Adjust the height to avoid space for the header */
+  height: calc(100vh - 0px);
   width: 100%;
   background-color: #f0f4f8;
-  margin-top: 150px; /* Increased space between the header and home section */
+  margin-top: 30px;
   padding: 20px 0;
 }
 
 /* Container to hold content inside the home section */
 .home-container {
   display: flex;
-  justify-content: center; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically */
-  width: 80%; /* Set the container width */
-  max-width: 1200px; /* Optional: Limit maximum width */
+  justify-content: space-between; /* Space between the text and image */
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
 }
 
-/* Styling for the text content */
 .home-text {
-  flex: 1; /* Allow the text to take up available space */
-  padding-right: 20px;
-  text-align: left; /* Align the text to the left */
-}
-
-.home-text p {
-  margin-bottom: 20px;
-  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center-align the text */
+  gap: 10px; /* Reduced gap between the lines of text */
+  margin-bottom: 10; /* Reduced margin to bring it closer */
 }
 
 .intro-text {
   font-size: 24px;
+  margin-top: 150px; /* Adjusted margin for better spacing */
 }
 
 .description {
-  font-size: 50px;
+  font-size: 50px; /* Reduced size for a more compact look */
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   line-height: 1.2;
-  margin-bottom: 20px;
-  margin-left: 20px;
 }
 
 .services {
-  font-size: 16px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-/* Work with Me button styling */
 .work-button {
   padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
   border: none;
   cursor: pointer;
-  margin-left: 20px;
+  margin-top: 10px; /* Reduced margin for less space */
 }
 
 .work-button:hover {
@@ -145,70 +208,63 @@ html {
 
 /* Follow me on section */
 .follow-text {
-  margin-top: 20px;
-  font-size: 18px;
-  margin-bottom: 20px; /* Add space after the text */
+  margin-top: 10px; /* Reduced margin */
+  font-size: 16px;
+  margin-bottom: 10px; /* Reduced bottom margin */
 }
 
-/* Social links and icons styling */
 .social-links {
   display: flex;
-  justify-content: flex-start; /* Align items to the left */
-  gap: 20px; /* Space between the icons */
-  margin-top: 10px;
+  justify-content: center;
+  gap: 10px; /* Reduced space between icons */
+  margin-bottom: 100px;
 }
 
 .social-icon img {
-  width: 70px; /* Increased size for the social icons */
-  height: 70px; /* Increased height for the social icons */
+  width: 60px; /* Reduced size for compactness */
+  height: 60px; /* Reduced size for compactness */
   object-fit: cover;
-  border-radius: 50%; /* Make the icons circular */
-  transition: transform 0.3s ease; /* Smooth scaling on hover */
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
 .social-icon img:hover {
-  transform: scale(1.3); /* Scale up the icons on hover */
+  transform: scale(1.2); /* Slightly smaller hover effect */
 }
 
 /* Image section styling */
 .home-image {
-  flex: 1; /* Allow the image to take up remaining space */
-  text-align: left; /* Center the image */
-  position: relative; /* Make sure the button is positioned relative to the image container */
-  margin-right:10px;
+  flex: 1;
+  text-align: left;
+  position: relative;
+  
 }
 
-/* Image Styling */
 .home-image img {
-  width: 500px; /* Increased width for the image */
-  height: 300px; /* Set a fixed height for the image */
-  object-fit: cover; /* Ensure the image covers the area without distorting */
-  max-width: 100%; /* Ensure the image is responsive */
+  width: 60px; /* Reduced width */
+  height: 400px; /* Reduced height */
+  object-fit: cover;
+  max-width: 0%;
+  margin-left: 0px; /* Reduced margin for better balance */
+  margin-top: 40px;
 }
 
-/* Download Resume button styling */
 .download-button {
-  position: absolute; /* Position the button absolutely relative to the image container */
-  bottom: -50px; /* Position the button 20px from the bottom of the image */
-  right: 20px; /* Position the button 20px from the right of the image */
-  padding: 5px 5px; /* Adjusted padding for button height */
-  font-size: 15px; /* Adjust text size */
+  position: absolute;
+  bottom: -80px;
+  right: -20px;
+  padding: 5px 10px; /* Adjusted padding for compactness */
+  font-size: 14px;
   background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
-/* Hover state for the button */
 .download-button:hover {
-  background-color: #0056b3; /* Darken the button on hover */
+  background-color: #0056b3;
 }
 
-/* Text styling inside the button */
 .download-button span {
   display: inline-block;
   line-height: 1.2;

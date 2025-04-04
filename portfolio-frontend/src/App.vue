@@ -4,7 +4,7 @@
     <header class="header">
       <div class="logo">
         <img src="@/assets/icons/logo.png" alt="My Portfolio Logo" class="logo-img" />
-        <span class="logo-text">My Portfolio here!!</span>
+        <span class="logo-text">My Portfolio</span>
       </div>
 
       <!-- Menu Container: "MENU" label and hamburger icon -->
