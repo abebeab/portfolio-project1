@@ -4,7 +4,7 @@
     <header class="header">
       <div class="logo">
         <img src="@/assets/icons/logo.png" alt="Super Digital HiTECHh Logo" class="logo-img" />
-        <span class="logo-text">Super Digital TECHh</span>
+        <span class="logo-text">Super Digital TECH</span>
       </div>
 
       <!-- Menu Container: "MENU" label and hamburger icon -->
