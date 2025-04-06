@@ -7,15 +7,13 @@
         <p class="contact-text">Location: Addis Ababa, Ethiopia</p>
       </div>
 
-      <!-- Copyright Notice -->
-      <p class="footer-text">&copy; 2025 All rights reserved. This portfolio is made with ❤️ by Abebe Tafere</p>
-
       <!-- "Super Digital TECH" Announcement Section -->
       <div class="company-announcement">
         <p class="company-name"><strong>Super Digital TECH</strong></p>
-        <p class="coming-soon-text">🚀 Launching Soon! Stay tuned for the future !!</p> </div>
-      <!-- Social Media Links (Right-aligned) -->
-      
+        <p class="coming-soon-text">🚀 Launching Soon! Stay tuned for the future !!</p>
+      </div>
+
+      <!-- Social Media Links (Aligned to the Right) -->
       <div class="social-links">
         <p><strong>Stay connected:</strong></p>
         <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
@@ -31,6 +29,9 @@
           <img src="../assets/icons/upwork-icon.jpg" alt="Upwork" />
         </a>
       </div>
+
+      <!-- Copyright Notice (Moved to the End) -->
+      <p class="footer-text">&copy; 2025 All rights reserved. This portfolio is made with ❤️ by Abebe Tafere</p>
     </div>
   </footer>
 </template>
@@ -52,7 +53,6 @@ export default {
   margin-right: 20px;
   width: 100%;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow on the top */
-
 }
 
 /* Footer Container */
@@ -63,8 +63,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  
+  justify-content: flex-start; /* Align content to start */
 }
 
 /* Contact Information */
@@ -93,6 +92,37 @@ export default {
   margin-top: 20px;
 }
 
+/* Social Media Links (Right-aligned) */
+.social-links {
+  display: flex;
+  gap: 15px; /* Space between icons */
+  justify-content: flex-end; /* Align to the right */
+  align-items: center; /* Vertically center icons */
+  margin-top: 20px;
+  width: 100%;
+}
+
+.social-links p {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.social-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-icon img {
+  width: 50px; /* Adjust icon size */
+  height: 50px;
+  border-radius: 50%; /* Make the icons circular */
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+  transform: scale(1.2); /* Slightly enlarge icon on hover */
+}
+
 /* Company Announcement Section */
 .company-announcement {
   margin-top: 40px;
@@ -116,30 +146,6 @@ export default {
   font-style: italic;
   font-weight: 500;
   letter-spacing: 1px;
-}
-
-/* Social Media Links */
-.social-links {
-  display: flex;
-  gap: 15px; /* Space between icons */
-  justify-content: flex-end;
-  margin-top: 20px;
-}
-
-.social-icon {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.social-icon img {
-  width: 50px; /* Adjust icon size */
-  height: 50px;
-  border-radius: 50%; /* Make the icons circular */
-  transition: transform 0.3s ease;
-}
-
-.social-icon:hover img {
-  transform: scale(1.2); /* Slightly enlarge icon on hover */
 }
 
 /* Responsive Design for smaller screens */
