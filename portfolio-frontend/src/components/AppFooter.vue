@@ -1,37 +1,43 @@
 <template>
   <footer class="footer">
     <div class="footer-container">
-      <!-- Contact Information -->
-      <div class="contact-info">
-        <p class="contact-text">Email: <a href="mailto:abebetafere988@gmail.com">abebetafere988@gmail.com</a></p>
-        <p class="contact-text">Location: Addis Ababa, Ethiopia</p>
+      <!-- Centered Content (Contact info and Company Announcement) -->
+      <div class="center-content">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <p class="contact-text">Email: <a href="mailto:abebetafere988@gmail.com">abebetafere988@gmail.com</a></p>
+          <p class="contact-text">Location: Addis Ababa, Ethiopia</p>
+        </div>
+
+        <!-- "Super Digital TECH" Announcement Section -->
+        <div class="company-announcement">
+          <p class="company-name"><strong>Super Digital TECH</strong></p>
+          <p class="coming-soon-text">🚀 Launching Soon! Stay tuned for the future !!</p>
+        </div>
       </div>
 
-      <!-- "Super Digital TECH" Announcement Section -->
-      <div class="company-announcement">
-        <p class="company-name"><strong>Super Digital TECH</strong></p>
-        <p class="coming-soon-text">🚀 Launching Soon! Stay tuned for the future !!</p>
-      </div>
+      <!-- Copyright Notice and Social Media Links (On the same line) -->
+      <div class="footer-right">
+        <!-- Copyright Notice on the Left -->
+        <p class="footer-text">&copy; 2025 All rights reserved. This portfolio is made with ❤️ by Abebe Tafere</p>
 
-      <!-- Social Media Links (Aligned to the Right) -->
-      <div class="social-links">
-        <p><strong>Stay connected:</strong></p>
-        <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
-          <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn" />
-        </a>
-        <a href="https://t.me/ab_se7p" target="_blank" class="social-icon">
-          <img src="../assets/icons/telegram-icon.jpg" alt="Telegram" />
-        </a>
-        <a href="https://github.com/abebeab" target="_blank" class="social-icon">
-          <img src="../assets/icons/github-icon.jpg" alt="GitHub" />
-        </a>
-        <a href="https://www.upwork.com/freelancers/~01d347dbe89190526d?mp_source=share" target="_blank" class="social-icon">
-          <img src="../assets/icons/upwork-icon.jpg" alt="Upwork" />
-        </a>
+        <!-- Social Media Links on the Right -->
+        <div class="social-links">
+          <p><strong>Stay connected:</strong></p>
+          <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
+            <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn" />
+          </a>
+          <a href="https://t.me/ab_se7p" target="_blank" class="social-icon">
+            <img src="../assets/icons/telegram-icon.jpg" alt="Telegram" />
+          </a>
+          <a href="https://github.com/abebeab" target="_blank" class="social-icon">
+            <img src="../assets/icons/github-icon.jpg" alt="GitHub" />
+          </a>
+          <a href="https://www.upwork.com/freelancers/~01d347dbe89190526d?mp_source=share" target="_blank" class="social-icon">
+            <img src="../assets/icons/upwork-icon.jpg" alt="Upwork" />
+          </a>
+        </div>
       </div>
-
-      <!-- Copyright Notice (Moved to the End) -->
-      <p class="footer-text">&copy; 2025 All rights reserved. This portfolio is made with ❤️ by Abebe Tafere</p>
     </div>
   </footer>
 </template>
@@ -62,8 +68,15 @@ export default {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Align content to start */
+  justify-content: center;
+}
+
+/* Centered Content (Contact info and Company Announcement) */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Keep the contact info and company announcement centered */
+  margin-bottom: 20px;
 }
 
 /* Contact Information */
@@ -92,14 +105,18 @@ export default {
   margin-top: 20px;
 }
 
-/* Social Media Links (Right-aligned) */
+/* Align Copyright Notice on the Left and Social Media Links on the Right */
+.footer-right {
+  display: flex;
+  justify-content: space-between; /* Space between copyright notice and social links */
+  align-items: center; /* Vertically center the items */
+  width: 100%;
+}
+
 .social-links {
   display: flex;
-  gap: 15px; /* Space between icons */
-  justify-content: flex-end; /* Align to the right */
-  align-items: center; /* Vertically center icons */
-  margin-top: 20px;
-  width: 100%;
+  gap: 10px; /* Space between icons */
+  align-items: center; /* Vertically center the icons */
 }
 
 .social-links p {
