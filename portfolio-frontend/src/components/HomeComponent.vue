@@ -3,7 +3,7 @@
   <section id="brand-animation">
     <div class="brand-animation">
       <p class="brand-text" id="brand-text">
-        🚀 Super Digital Tec
+        🚀 Super Digital TECH
       </p>
     </div>
   </section>
@@ -76,7 +76,7 @@ export default {
     },
     startTypingEffect() {
       const brandTextElement = document.getElementById('brand-text');
-      const text = "🚀 Super Digital Tec"; // Fixed text to type
+      const text = "🚀 Super Digital TECH"; // Fixed text to type
       let i = 0;
       brandTextElement.textContent = ''; // Clear text initially
 

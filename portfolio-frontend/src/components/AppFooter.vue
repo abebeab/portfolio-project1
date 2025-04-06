@@ -10,9 +10,9 @@
       <!-- Copyright Notice -->
       <p class="footer-text">&copy; 2025 All rights reserved. This portfolio is made with ❤️ by Abebe Tafere</p>
 
-      <!-- "Super Digital tec" Announcement Section -->
+      <!-- "Super Digital TECH" Announcement Section -->
       <div class="company-announcement">
-        <p class="company-name"><strong>Super Digital Tec</strong></p>
+        <p class="company-name"><strong>Super Digital TECH</strong></p>
         <p class="coming-soon-text">🚀 Launching Soon! Stay tuned for the future !!</p> </div>
       <!-- Social Media Links (Right-aligned) -->
       <div class="social-links">

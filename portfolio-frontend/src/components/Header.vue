@@ -3,8 +3,8 @@
     <!-- Header Section -->
     <header class="header">
       <div class="logo">
-        <img src="@/assets/icons/logo.png" alt="Super Digital Hitech Logo" class="logo-img" />
-        <span class="logo-text">Super Digital Tech</span>
+        <img src="@/assets/icons/logo.png" alt="Super Digital HiTECHh Logo" class="logo-img" />
+        <span class="logo-text">Super Digital TECHh</span>
       </div>
 
       <!-- Menu Container: "MENU" label and hamburger icon -->
@@ -140,7 +140,7 @@ html, body {
 .logo-text {
   font-size: 2rem; /* Increased font size */
   font-weight: bold;
-  color: #f39c12; /* Bright color to match the tech vibe */
+  color: #f39c12; /* Bright color to match the TECHh vibe */
   text-transform: uppercase; /* Make text stand out */
   letter-spacing: 3px; /* Spacing for a more stylish effect */
 }
