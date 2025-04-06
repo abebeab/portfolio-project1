@@ -145,7 +145,7 @@ section#contact {
   margin-bottom: 20px;
   text-align: center;
   opacity: 0;
-  animation: fadeIn 0.5s forwards; /* Fade-in animation */
+  animation: fadeIn 0.8s forwards; /* Fade-in animation */
 }
 
 /* Success Message Animation */
