@@ -53,7 +53,7 @@
         <div class="service-content">
           <img src="../assets/icons/mobile-app-icon.jpg" alt="Mobile App Development" class="service-icon" />
           <h4 class="service-title">Mobile App Development</h4>
-          <p class="service-description">Building custom mobile applications for iOS and Android platforms to enhance user experience.</p>
+          <p class="service-description">Building custom mobile applications for Android platforms to enhance user experience.</p>
         </div>
       </div>
 

@@ -15,7 +15,9 @@
         <p class="company-name"><strong>Super Digital TECH</strong></p>
         <p class="coming-soon-text">🚀 Launching Soon! Stay tuned for the future !!</p> </div>
       <!-- Social Media Links (Right-aligned) -->
+      
       <div class="social-links">
+        <p><strong>Stay connected:</strong></p>
         <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
           <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn" />
         </a>
