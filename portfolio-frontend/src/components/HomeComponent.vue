@@ -70,7 +70,7 @@ export default {
     },
     downloadResume() {
       const link = document.createElement('a');
-      link.href = "https://drive.google.com/uc?export=download&id=1CdnQ_zm-tOCBuZ8cZbcikFKHjcFEZq1Z"; 
+      link.href = "https://drive.google.com/uc?export=download&id=1Nrh0r1eJ7HHIbhiZVSGA1Gtfxp7zcnfc"; // Updated link
       link.download = 'Abebe_Resume.pdf'; 
       link.click(); 
     },
