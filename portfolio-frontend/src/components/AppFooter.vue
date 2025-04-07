@@ -1,29 +1,26 @@
 <template>
   <footer class="footer">
     <div class="footer-container">
-      <!-- Centered Content (Contact info and Company Announcement) -->
+      <!-- Centered Content -->
       <div class="center-content">
-        <!-- Contact Information -->
+        <!-- Contact Info -->
         <div class="contact-info">
           <p class="contact-text">Email: <a href="mailto:abebetafere988@gmail.com">abebetafere988@gmail.com</a></p>
           <p class="contact-text">Location: Addis Ababa, Ethiopia</p>
         </div>
 
-        <!-- "Super Digital TECH" Announcement Section -->
+        <!-- Company Announcement -->
         <div class="company-announcement">
           <p class="company-name"><strong>Super Digital TECH</strong></p>
           <p class="coming-soon-text">🚀 Launching Soon! Stay tuned for the future !!</p>
         </div>
       </div>
-
-      <!-- Copyright Notice and Social Media Links (On the same line) -->
-      <div class="footer-right">
-        <!-- Copyright Notice on the Left -->
-        <p class="footer-text">&copy; 2025 All rights reserved. This portfolio is made with ❤️ by Abebe Tafere</p>
-
-        <!-- Social Media Links on the Right -->
+       
+      <!-- Social Links aligned top right -->
+       
+      <div class="footer-top-right">
+        <p> Stay connected:</p> 
         <div class="social-links">
-          <p><strong>Stay connected:</strong></p>
           <a href="https://www.linkedin.com/in/abebe-tafere-6176781a2/" target="_blank" class="social-icon">
             <img src="../assets/icons/linkedin-icon.jpg" alt="LinkedIn" />
           </a>
@@ -38,6 +35,13 @@
           </a>
         </div>
       </div>
+
+      <!-- Footer Bottom Text -->
+      <div class="footer-bottom">
+        <p class="footer-text">
+          &copy; 2025 All rights reserved. This portfolio is made with ❤️ by Abebe Tafere
+        </p>
+      </div>
     </div>
   </footer>
 </template>
@@ -49,39 +53,31 @@ export default {
 </script>
 
 <style scoped>
-/* Footer Styling */
 .footer {
-  background: linear-gradient(135deg, #6a1b9a, #ff4081); /* Gradient background */
-  color: #fff; /* White text color for contrast */
-  padding: -10px -10px;
+  background: linear-gradient(135deg, #6a1b9a, #ff4081);
+  color: #fff;
   text-align: center;
-  position: relative;
-  margin-right: 20px;
   width: 100%;
-  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow on the top */
+  padding-top: 20px;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Container */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 10px 20px 20px;
+  position: relative;
 }
 
-/* Centered Content (Contact info and Company Announcement) */
 .center-content {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Keep the contact info and company announcement centered */
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Contact Information */
 .contact-info {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .contact-text {
@@ -98,51 +94,41 @@ export default {
   text-decoration: underline;
 }
 
-/* Footer Text */
-.footer-text {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-top: 20px;
-}
-
-/* Align Copyright Notice on the Left and Social Media Links on the Right */
-.footer-right {
+.footer-top-right {
   display: flex;
-  justify-content: space-between; /* Space between copyright notice and social links */
-  align-items: center; /* Vertically center the items */
-  width: 100%;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
 .social-links {
   display: flex;
-  gap: 10px; /* Space between icons */
-  align-items: center; /* Vertically center the icons */
-}
-
-.social-links p {
-  margin-right: 20px;
-  font-weight: bold;
-}
-
-.social-icon {
-  display: inline-block;
-  transition: transform 0.3s ease;
+  gap: 10px;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .social-icon img {
-  width: 50px; /* Adjust icon size */
-  height: 50px;
-  border-radius: 50%; /* Make the icons circular */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
 .social-icon:hover img {
-  transform: scale(1.2); /* Slightly enlarge icon on hover */
+  transform: scale(1.2);
 }
 
-/* Company Announcement Section */
+.footer-bottom {
+  margin-top: 20px;
+}
+
+.footer-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 .company-announcement {
-  margin-top: 40px;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.2);
   padding: 20px;
   border-radius: 10px;
@@ -165,23 +151,24 @@ export default {
   letter-spacing: 1px;
 }
 
-/* Responsive Design for smaller screens */
 @media (max-width: 768px) {
   .footer-container {
     padding: 15px;
   }
 
-  .contact-info {
-    margin-bottom: 15px;
+  .footer-top-right {
+    justify-content: center;
   }
 
-  .footer-text {
-    font-size: 1rem;
+  .social-links {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-shrink: 1;
   }
 
-  .company-announcement {
-    margin-top: 30px;
-    padding: 15px;
+  .social-icon img {
+    width: 35px;
+    height: 35px;
   }
 
   .company-name {
@@ -192,9 +179,9 @@ export default {
     font-size: 1.1rem;
   }
 
-  .social-icon img {
-    width: 35px;
-    height: 35px;
+  .footer-text {
+    font-size: 1rem;
+    padding-top: 10px;
   }
 }
 </style>
