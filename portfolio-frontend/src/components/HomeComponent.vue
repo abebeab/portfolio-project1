@@ -80,22 +80,15 @@ export default {
       let i = 0;
       brandTextElement.textContent = ''; // Clear text initially
 
-      // Function for typing effect with looping
       const typingInterval = () => {
         if (i < text.length) {
           brandTextElement.textContent += text[i];
           i++;
-          setTimeout(typingInterval, 100); // Continue typing
-        } else {
-          setTimeout(() => {
-            brandTextElement.textContent = ''; // Reset the text to empty
-            i = 0; // Reset the index
-            typingInterval(); // Restart typing after a delay
-          }, 1000); // Adjust the delay before restarting (1 second)
+          setTimeout(typingInterval, 50); // Type next letter
         }
       };
 
-      typingInterval(); // Start typing effect
+      typingInterval(); // Start typing effect once when the page loads
     }
   },
   mounted() {
